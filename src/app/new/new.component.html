@@ -1,0 +1,29 @@
+<a routerLink="/" class="btn btn-secondary">Back</a>
+<form (ngSubmit)="create()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" name="name" placeholder="My new timer" [(ngModel)]="newTimer.name" max="50" required>
+  </div>
+  <fieldset *ngFor="let session of newTimer.sessions; let i = index">
+    <legend>
+      Session {{ i + 1 }}
+      <button *ngIf="i > 0" type="button" class="btn btn-outline-danger float-right" (click)="removeSession(i)">Delete this session</button>
+    </legend>
+    <div class="form-group">
+      <label for="quantity">Quantity of exercices</label>
+      <input type="number" class="form-control" id="quantity" name="quantity" [(ngModel)]="session.quantity" min="1" step="1" required>
+    </div>
+    <div class="form-group">
+      <label for="duration">Duration of the exercices</label>
+      <input type="number" class="form-control" id="duration" name="duration" [(ngModel)]="session.duration" min="1" step="1" required>
+    </div>
+    <div class="form-group">
+      <label for="pause">Time of pause between exercices</label>
+      <input type="number" class="form-control" id="pause" name="pause" [(ngModel)]="session.pause" min="0" step="1" required>
+    </div>
+  </fieldset>
+  <button type="button" class="btn btn-outline-primary" (click)="addSession()">Add a session</button>
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary">Create the timer</button>
+  </div>
+</form>

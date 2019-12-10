@@ -1,0 +1,13 @@
+<a routerLink="/new" class="btn btn-primary btn-lg mb-3">Add a new timer</a>
+<div class="list-group">
+  <div class="list-group-item" *ngFor="let timer of timers">
+    <div class="d-flex w-100">
+      <div class="flex-fill">
+        <h5>{{ timer.name }}</h5>
+        <small>{{ timer.sessions.length }} sessions</small>
+      </div>
+      <a [routerLink]="['/', timer.id, 'edit']" class="btn btn-secondary ml-3">Edit</a>
+      <a [routerLink]="['/', timer.id, 'play']" class="btn btn-primary ml-3">Play</a>
+    </div>
+  </div>
+</div>
