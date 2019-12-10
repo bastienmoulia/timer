@@ -1,5 +1,10 @@
 # Timer
 
+[![Build Status](https://api.travis-ci.com/bastienmoulia/timer.svg?branch=master)](https://travis-ci.com/bastienmoulia/timer)
+[![Known Vulnerabilities](https://snyk.io/test/github/bastienmoulia/timer/badge.svg)](https://snyk.io/test/github/bastienmoulia/timer)
+[![Dependencies](https://david-dm.org/bastienmoulia/timer/status.svg)](https://david-dm.org/bastienmoulia/timer)
+[![Dev Dependencies](https://david-dm.org/bastienmoulia/timer/dev-status.svg)](https://david-dm.org/bastienmoulia/timer?type=dev)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.0-rc.5.
 
 ## Development server
