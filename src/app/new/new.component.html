@@ -1,5 +1,10 @@
-<a routerLink="/" class="btn btn-secondary">Back</a>
-<form (ngSubmit)="create()">
+<a routerLink="/" class="btn btn-secondary">
+  <svg class="bi bi-chevron-left" width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" d="M13.354 3.646a.5.5 0 010 .708L7.707 10l5.647 5.646a.5.5 0 01-.708.708l-6-6a.5.5 0 010-.708l6-6a.5.5 0 01.708 0z" clip-rule="evenodd"/>
+  </svg>
+  Back
+</a>
+<form (ngSubmit)="create(form)" #form="ngForm">
   <div class="form-group">
     <label for="name">Name</label>
     <input type="text" class="form-control" id="name" name="name" placeholder="My new timer" [(ngModel)]="newTimer.name" max="50" required>
@@ -7,7 +12,14 @@
   <fieldset *ngFor="let session of newTimer.sessions; let i = index">
     <legend>
       Session {{ i + 1 }}
-      <button *ngIf="i > 0" type="button" class="btn btn-outline-danger float-right" (click)="removeSession(i)">Delete this session</button>
+      <button *ngIf="i > 0" type="button" class="btn btn-outline-danger float-right" (click)="removeSession(i)">
+        <svg class="bi bi-trash" width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M6 6v8.5c0 .47.124.874.297 1.144.177.275.361.356.489.356h6.428c.127 0 .312-.08.489-.356.173-.27.297-.673.297-1.144V6h1v8.5c0 .634-.164 1.23-.456 1.685-.288.448-.747.815-1.33.815H6.786c-.583 0-1.042-.367-1.33-.815C5.164 15.73 5 15.134 5 14.5V6h1z" clip-rule="evenodd"/>
+          <path fill-rule="evenodd" d="M7.5 7.5A.5.5 0 018 8v6a.5.5 0 01-1 0V8a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V8a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V8a.5.5 0 01.5-.5zm3-3.5h-11v1h11V4zm-11-1a1 1 0 00-1 1v1a1 1 0 001 1h11a1 1 0 001-1V4a1 1 0 00-1-1h-11z" clip-rule="evenodd"/>
+          <path d="M8 3a1 1 0 011-1h2a1 1 0 011 1v1H8V3z"/>
+        </svg>
+        Delete session {{ i + 1 }}
+      </button>
     </legend>
     <div class="form-group">
       <label for="quantity">Quantity of exercices</label>
@@ -22,7 +34,13 @@
       <input type="number" class="form-control" id="pause" name="pause" [(ngModel)]="session.pause" min="0" step="1" required>
     </div>
   </fieldset>
-  <button type="button" class="btn btn-outline-primary" (click)="addSession()">Add a session</button>
+  <button type="button" class="btn btn-outline-primary" (click)="addSession()">
+    <svg class="bi bi-plus" width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M10 5.5a.5.5 0 01.5.5v4a.5.5 0 01-.5.5H6a.5.5 0 010-1h3.5V6a.5.5 0 01.5-.5z" clip-rule="evenodd"/>
+      <path fill-rule="evenodd" d="M9.5 10a.5.5 0 01.5-.5h4a.5.5 0 010 1h-3.5V14a.5.5 0 01-1 0v-4z" clip-rule="evenodd"/>
+    </svg>
+    Add a session
+  </button>
   <div class="text-center">
     <button type="submit" class="btn btn-primary">Create the timer</button>
   </div>

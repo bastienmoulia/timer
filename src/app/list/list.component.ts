@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Timer } from '../shared/timer';
+import { TimerService } from '../core/timer.service';
 
 @Component({
   selector: 'app-list',
@@ -10,14 +11,12 @@ export class ListComponent implements OnInit {
 
   timers: Timer[] = [];
 
-  constructor() { }
+  constructor(
+    private timerService: TimerService
+  ) { }
 
   ngOnInit() {
-    this.timers.push({
-      name: 'Initial timer',
-      id: 'init',
-      sessions: []
-    });
+    this.timers = this.timerService.getTimers();
   }
 
 }

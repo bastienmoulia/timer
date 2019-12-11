@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Timer } from '../shared/timer';
 import { Session } from '../shared/session';
+import { TimerService } from '../core/timer.service';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 const newSession: Session = {
   quantity: 10,
@@ -17,7 +20,10 @@ export class NewComponent implements OnInit {
 
   newTimer: Timer = null;
 
-  constructor() { }
+  constructor(
+    private timerService: TimerService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.newTimer = {
@@ -35,8 +41,11 @@ export class NewComponent implements OnInit {
     this.newTimer.sessions.splice(index, 1);
   }
 
-  create() {
-
+  create(form: NgForm) {
+    if (form.valid) {
+      this.timerService.addTimer(this.newTimer);
+      this.router.navigate(['/']);
+    }
   }
 
 }
