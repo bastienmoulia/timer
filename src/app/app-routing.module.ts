@@ -7,8 +7,8 @@ import { PlayComponent } from './play/play.component';
 
 const routes: Routes = [
   { path: 'new', component: NewComponent },
-  { path: ':id/edit', component: EditComponent },
-  { path: ':id/play', component: PlayComponent },
+  { path: ':timerId/edit', component: EditComponent },
+  { path: ':timerId/play', component: PlayComponent },
   { path: '', component: ListComponent },
 ];
 

@@ -20,6 +20,11 @@ export class TimerService {
     return this.storage.get(STORAGE_KEY);
   }
 
+  getTimer(timerId: string): Timer {
+    const timers = this.getTimers();
+    return timers.find((timer) => timer.id === timerId);
+  }
+
   setTimers(timers: Timer[]) {
     this.storage.set(STORAGE_KEY, timers);
   }
@@ -45,6 +50,16 @@ export class TimerService {
     const timers = this.getTimers();
     const timersFiltered = timers.filter((timer) => timer.id !== timerId);
     this.setTimers(timersFiltered);
+  }
+
+  editTimer(timerEdited: Timer) {
+    const timers = this.getTimers();
+    timers.forEach((timer) => {
+      if (timer.id === timerEdited.id) {
+        timer = timerEdited;
+      }
+    });
+    this.setTimers(timers);
   }
 
   private generateId(): string {
