@@ -9,18 +9,13 @@ import { Timer } from '../shared/timer';
   styleUrls: ['./play.component.scss']
 })
 export class PlayComponent implements OnInit {
-
   timer: Timer;
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private timerService: TimerService
-  ) { }
+  constructor(private activatedRoute: ActivatedRoute, private timerService: TimerService) {}
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(params => {
       this.timer = this.timerService.getTimer(params.get('timerId'));
-    })
+    });
   }
-
 }

@@ -11,20 +11,9 @@ import { PlayComponent } from './play/play.component';
 import { CoreModule } from './core/core.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NewComponent,
-    ListComponent,
-    EditComponent,
-    PlayComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    CoreModule
-  ],
+  declarations: [AppComponent, NewComponent, ListComponent, EditComponent, PlayComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, CoreModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

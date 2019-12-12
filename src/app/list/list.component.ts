@@ -8,15 +8,11 @@ import { TimerService } from '../core/timer.service';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-
   timers: Timer[] = [];
 
-  constructor(
-    private timerService: TimerService
-  ) { }
+  constructor(private timerService: TimerService) {}
 
   ngOnInit() {
     this.timers = this.timerService.getTimers();
   }
-
 }

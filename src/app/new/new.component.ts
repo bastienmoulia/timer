@@ -17,13 +17,9 @@ const newSession: Session = {
   styleUrls: ['./new.component.scss']
 })
 export class NewComponent implements OnInit {
-
   newTimer: Timer = null;
 
-  constructor(
-    private timerService: TimerService,
-    private router: Router
-  ) { }
+  constructor(private timerService: TimerService, private router: Router) {}
 
   ngOnInit() {
     this.newTimer = {
@@ -47,5 +43,4 @@ export class NewComponent implements OnInit {
       this.router.navigate(['/']);
     }
   }
-
 }

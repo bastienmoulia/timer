@@ -8,10 +8,7 @@ const STORAGE_KEY = 'timers';
   providedIn: 'root'
 })
 export class TimerService {
-
-  constructor(
-    @Inject(LOCAL_STORAGE) private storage: StorageService
-  ) { }
+  constructor(@Inject(LOCAL_STORAGE) private storage: StorageService) {}
 
   getTimers(): Timer[] {
     if (!this.storage.has(STORAGE_KEY)) {
@@ -22,7 +19,7 @@ export class TimerService {
 
   getTimer(timerId: string): Timer {
     const timers = this.getTimers();
-    return timers.find((timer) => timer.id === timerId);
+    return timers.find(timer => timer.id === timerId);
   }
 
   setTimers(timers: Timer[]) {
@@ -48,13 +45,13 @@ export class TimerService {
 
   deleteTimer(timerId: string) {
     const timers = this.getTimers();
-    const timersFiltered = timers.filter((timer) => timer.id !== timerId);
+    const timersFiltered = timers.filter(timer => timer.id !== timerId);
     this.setTimers(timersFiltered);
   }
 
   editTimer(timerEdited: Timer) {
     const timers = this.getTimers();
-    timers.forEach((timer) => {
+    timers.forEach(timer => {
       if (timer.id === timerEdited.id) {
         timer = timerEdited;
       }
@@ -63,6 +60,8 @@ export class TimerService {
   }
 
   private generateId(): string {
-    return Math.random().toString(36).substr(2, 9);
+    return Math.random()
+      .toString(36)
+      .substr(2, 9);
   }
 }
