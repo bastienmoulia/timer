@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { TimerService } from '../core/timer.service';
 import { Timer } from '../shared/timer';
 
-const INTERVAL = 100;
+const INTERVAL = 30;
 
 @Component({
   selector: 'app-play',
