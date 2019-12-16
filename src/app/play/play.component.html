@@ -1,1 +1,31 @@
-<h1>{{ timer.name }}</h1>
+<ng-container *ngIf="timer">
+  <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <div class="container">
+      <a routerLink="/" class="btn btn-secondary">
+        <svg class="bi bi-chevron-left" width="1em" height="1em" viewBox="1.5 1.5 17 17" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M13.354 3.646a.5.5 0 010 .708L7.707 10l5.647 5.646a.5.5 0 01-.708.708l-6-6a.5.5 0 010-.708l6-6a.5.5 0 01.708 0z" clip-rule="evenodd"/>
+        </svg>
+        Back
+      </a>
+      <span class="navbar-brand mb-0 h1">{{ timer.name }}</span>
+    </div>
+  </nav>
+  <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <ng-container *ngIf="timer.sessions.length > 1">Session {{ currentSession }} / {{ timer.sessions.length }} - </ng-container>
+    Exercice {{ currentExercice }} / {{ timer.sessions[currentSession - 1]?.quantity}}
+  </nav>
+  <div class="flex-fill d-flex flex-column justify-content-center">
+    <div class="d-flex flex-row justify-content-center">
+      <div>
+        <svg viewBox="0 0 100 100" width="100%" heigh="100%">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="#CCC" stroke-width="5"></circle>
+          <path [attr.d]="path" fill="none" stroke-width="5" [attr.stroke]="work ? 'red': 'green'"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <button class="btn btn-primary" (click)="start()" *ngIf="!started">Start</button>
+    <button class="btn btn-secondary" (click)="pause()" *ngIf="started">Pause</button>
+  </nav>
+</ng-container>

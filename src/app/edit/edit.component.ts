@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Timer } from '../shared/timer';
+import { ActivatedRoute } from '@angular/router';
+import { TimerService } from '../core/timer.service';
 
 @Component({
   selector: 'app-edit',
@@ -6,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
-  constructor() {}
+  timer: Timer;
 
-  ngOnInit() {}
+  constructor(private activatedRoute: ActivatedRoute, private timerService: TimerService) {}
+
+  ngOnInit() {
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.timer = this.timerService.getTimer(params.get('timerId'));
+    });
+  }
 }

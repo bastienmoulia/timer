@@ -30,7 +30,13 @@ export class TimerService {
     const timer = {
       name: 'Initial timer',
       id: '',
-      sessions: []
+      sessions: [
+        {
+          quantity: 10,
+          duration: 10,
+          pause: 5
+        }
+      ]
     };
     timer.id = this.generateId();
     this.setTimers([timer]);
