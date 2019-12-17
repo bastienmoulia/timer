@@ -14,7 +14,13 @@ import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent, NewComponent, ListComponent, EditComponent, PlayComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, CoreModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    CoreModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
