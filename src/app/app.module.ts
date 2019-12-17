@@ -11,9 +11,10 @@ import { PlayComponent } from './play/play.component';
 import { CoreModule } from './core/core.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
-  declarations: [AppComponent, NewComponent, ListComponent, EditComponent, PlayComponent],
+  declarations: [AppComponent, NewComponent, ListComponent, EditComponent, PlayComponent, FormComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

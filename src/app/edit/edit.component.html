@@ -10,4 +10,7 @@
       <span class="navbar-brand mb-0 h1">Edit timer</span>
     </div>
   </nav>
+  <div class="container">
+    <app-form [timer]="timer" submitLabel="Save the timer" (submitTimer)="onSubmit($event)"></app-form>
+  </div>
 </ng-container>
