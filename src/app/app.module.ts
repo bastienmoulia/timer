@@ -14,7 +14,14 @@ import { environment } from '../environments/environment';
 import { FormComponent } from './form/form.component';
 
 @NgModule({
-  declarations: [AppComponent, NewComponent, ListComponent, EditComponent, PlayComponent, FormComponent],
+  declarations: [
+    AppComponent,
+    NewComponent,
+    ListComponent,
+    EditComponent,
+    PlayComponent,
+    FormComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
