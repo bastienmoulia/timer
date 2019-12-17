@@ -9,10 +9,12 @@ import { ListComponent } from './list/list.component';
 import { EditComponent } from './edit/edit.component';
 import { PlayComponent } from './play/play.component';
 import { CoreModule } from './core/core.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent, NewComponent, ListComponent, EditComponent, PlayComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, CoreModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, CoreModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
   providers: [],
   bootstrap: [AppComponent]
 })
