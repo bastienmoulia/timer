@@ -1,6 +1,7 @@
 {
   "name": "timer",
   "version": "1.0.0",
+  "description": "Timer for physiotherapy exercises",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
